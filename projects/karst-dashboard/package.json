@@ -1,0 +1,18 @@
+{
+  "name": "karst-dashboard",
+  "version": "1.0.0",
+  "description": "Standalone dashboard for monitoring Karst agent activity",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "dashboard",
+    "monitoring",
+    "karst",
+    "agent"
+  ],
+  "author": "Karst",
+  "license": "MIT"
+}

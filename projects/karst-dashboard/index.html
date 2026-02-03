@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karst Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Password Protection -->
+    <div id="auth-screen" class="auth-screen">
+        <div class="auth-box">
+            <h1>🔒 Karst Dashboard</h1>
+            <input type="password" id="password-input" placeholder="Enter password">
+            <button onclick="authenticate()">Access</button>
+            <p id="auth-error" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <header>
+            <h1>🧠 Karst Dashboard</h1>
+            <div class="header-info">
+                <span id="last-update">Last updated: Never</span>
+                <span id="next-refresh">Next refresh: 10s</span>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Session Info -->
+            <section class="card">
+                <h2>📊 Session Info</h2>
+                <div id="session-info">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Model:</span>
+                            <span id="model">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Runtime:</span>
+                            <span id="runtime">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Status:</span>
+                            <span id="status" class="badge badge-active">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heartbeat Monitor -->
+            <section class="card">
+                <h2>💓 Heartbeat Monitor</h2>
+                <div id="heartbeat-info">
+                    <div class="heartbeat-main">
+                        <div class="heartbeat-time">
+                            <span class="label">Last Heartbeat:</span>
+                            <span id="last-heartbeat" class="time">-</span>
+                        </div>
+                        <div class="heartbeat-countdown">
+                            <span class="label">Next in:</span>
+                            <span id="heartbeat-countdown" class="countdown">-</span>
+                        </div>
+                    </div>
+                    <div class="checks-grid">
+                        <div class="check-item">
+                            <span class="check-label">📧 Email:</span>
+                            <span id="check-email" class="check-time">-</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">📅 Calendar:</span>
+                            <span id="check-calendar" class="check-time">-</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">🌐 GlassWall:</span>
+                            <span id="check-glasswall" class="check-time">-</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">🐦 Social:</span>
+                            <span id="check-social" class="check-time">-</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">⚙️ System:</span>
+                            <span id="check-system" class="check-time">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Task Dashboard -->
+            <section class="card">
+                <h2>🔄 Active Tasks</h2>
+                <div id="active-tasks">
+                    <p class="empty-state">No active tasks</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>✅ Completed Tasks (Last 5)</h2>
+                <div id="completed-tasks">
+                    <p class="empty-state">No completed tasks</p>
+                </div>
+            </section>
+
+            <!-- Memory Activity -->
+            <section class="card">
+                <h2>🧠 Memory Activity</h2>
+                <div id="memory-activity">
+                    <p class="empty-state">Loading memory files...</p>
+                </div>
+            </section>
+
+            <!-- File Changes -->
+            <section class="card">
+                <h2>📁 Recent File Changes</h2>
+                <div id="file-changes">
+                    <p class="empty-state">Loading file activity...</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

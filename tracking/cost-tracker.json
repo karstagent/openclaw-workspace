@@ -1,0 +1,11 @@
+{
+  "monthlyBudget": 200,
+  "currentMonth": "2026-02",
+  "sessions": {},
+  "totals": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "estimatedCost": 0
+  },
+  "lastUpdated": "2026-02-03T04:37:00.000Z"
+}
