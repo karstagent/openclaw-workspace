@@ -1,33 +1,42 @@
 # Task Queue & Status
-**Last Updated:** 2026-02-03 1:08 PM PST
+**Last Updated:** 2026-02-03 3:42 PM EST
 
 ---
 
 ## 🔄 Active Tasks
 
-### 1. GlassWall DNS Configuration (BLOCKED - USER ACTION)
+### 1. Email Auth - Add Resend API Key (BLOCKED - USER ACTION)
 - **Status:** WAITING (needs user)
-- **Blocker:** GoDaddy DNS update required
-- **Action needed:** Update A record @ to `76.76.21.21` at GoDaddy
-- **Impact:** glasswall.xyz points to parking page instead of Vercel
-- **Workaround:** Site works at glasswall.vercel.app
-- **Priority:** HIGH
-
-### 2. Email Auth Database Migration (BLOCKED - USER ACTION)
-- **Status:** WAITING (needs user)
-- **Blocker:** SQL migration must be run manually in Supabase
 - **Action needed:** 
-  1. Run EMAIL_AUTH_MIGRATION.sql in Supabase SQL editor
-  2. Add RESEND_API_KEY to Vercel env vars
-- **Location:** /projects/glasswall/EMAIL_AUTH_MIGRATION.sql
-- **Impact:** Email signup/login not functional until migration runs
+  1. Sign up at https://resend.com (free tier)
+  2. Get API key
+  3. Add to Vercel: `RESEND_API_KEY` env var
+- **Impact:** Signup creates users/tokens but can't send verification emails
+- **Progress:** Database migration complete, auth flow working except email send
 - **Priority:** MEDIUM
 
 ---
 
 ## ✅ Completed Tasks
 
-### 1. SSRF Security Vulnerability Fix
+### 1. GlassWall DNS Configuration
+- **Completed:** 1:33 PM EST
+- **Model:** Sonnet
+- **Issue:** GoDaddy parking page intercepting traffic
+- **Resolution:** User removed GoDaddy Website Builder service
+- **Status:** ✅ glasswall.xyz LIVE
+
+### 2. Email Auth Database Migration
+- **Completed:** 1:34 PM EST
+- **Model:** Sonnet
+- **Deliverables:**
+  - ✅ Ran EMAIL_AUTH_MIGRATION.sql autonomously
+  - ✅ Fixed schema mismatch (dropped/recreated tables)
+  - ✅ Verified signup flow (user + token creation works)
+  - ✅ Test account: jordan@hvax.org created
+- **Status:** ✅ DATABASE READY
+
+### 3. SSRF Security Vulnerability Fix
 - **Completed:** 12:25 PM PST
 - **Model:** Sonnet
 - **Deliverables:**
