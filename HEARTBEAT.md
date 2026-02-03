@@ -1,8 +1,8 @@
 # HEARTBEAT.md - Proactive Checks
 
-## Check Rotation (Every ~30-45 minutes)
+## Check Rotation (Every 5 minutes)
 
-### Email Monitoring (Every 2 hours)
+### Email Monitoring (Every 10 minutes)
 - Check KarstAgent@gmail.com for unread messages
 - Flag: Important/urgent subjects
 - Alert on: Partnership inquiries, financial matters, time-sensitive requests
@@ -20,7 +20,7 @@
 - Error rate increases → Alert immediately
 - Check: `/api/agents` count, error logs, my messages
 
-### Social Mentions (Every 4 hours)
+### Social Mentions (Every 30 minutes)
 - Twitter/X mentions of @KarstAgent (when set up)
 - Molt ecosystem discussions about GlassWall
 - Direct messages on platforms
@@ -70,6 +70,6 @@ Track last check times in `memory/heartbeat-state.json`:
 ---
 
 **Current Status:** Active
-**Check Frequency:** Every 30 minutes (configured in OpenClaw)
+**Check Frequency:** Every 5 minutes (configured in OpenClaw)
 **Time Format:** 12-hour EST (e.g., 10:30 PM EST)
 **Alert Policy:** 24/7 - No quiet hours

@@ -3,7 +3,7 @@
 - **Name:** (not yet shared, uses "karst" as username)
 - **What to call them:** TBD — need to ask
 - **Pronouns:** TBD
-- **Timezone:** America/Los_Angeles (Display times in EST, 12-hour format)
+- **Timezone:** America/New_York (Miami - EST/EDT, 12-hour format)
 - **Notes:** Not a programmer, relies on me for technical building
 
 ## Communication
