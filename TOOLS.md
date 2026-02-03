@@ -59,3 +59,9 @@
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## Workspace Repository
+
+- **GitHub:** https://github.com/karstagent/openclaw-workspace
+- **Contains:** Research docs, memory files, TASKS.md, all workspace files
+- **Remote:** Already configured and pushed
