@@ -1,12 +1,1 @@
-{
-  "lastChecks": {
-    "email": 1770129300,
-    "calendar": 1770132660,
-    "glasswall": 1770132660,
-    "social": 1770121005,
-    "system": 1770132660
-  },
-  "alertHistory": [],
-  "initialized": "2026-02-03T05:51:00.000Z",
-  "lastHeartbeat": "2026-02-03T15:31:00.000Z"
-}
+{"lastChecks":{"email":1770137768,"calendar":1770138387,"glasswall":1770138387,"social":1770137768,"system":1770138387},"alertHistory":[],"initialized":"2026-02-03T05:51:00.000Z","lastHeartbeat":"2026-02-03T17:06:27Z"}
