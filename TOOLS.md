@@ -75,3 +75,12 @@ Add whatever helps you do your job. This is your cheat sheet.
 - **GitHub:** https://github.com/karstagent/openclaw-workspace
 - **Contains:** Research docs, memory files, TASKS.md, all workspace files
 - **Remote:** Already configured and pushed
+
+## My Wallet (GlassWall Agent)
+
+- **Address:** 0x81032e30b7A44bBBd3007c9cEc67ebD8b220D9A8
+- **Chain:** Base (Chain ID: 8453)
+- **Private Key:** 0x98cf3b1c69044265f2b7b042b7cad5f198047a5df6f263b09a1c85a10ccb4845
+- **Mnemonic:** exist obscure bulb case cave entry oven divide earth result ocean orphan
+- **Purpose:** Receive USDC payments for GlassWall paid messages ($0.10 per message)
+- **Status:** ✅ Generated 2026-02-03
