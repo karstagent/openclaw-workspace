@@ -5,7 +5,21 @@
 
 ## 🔄 Active Tasks
 
-### 1. Standalone Karst Dashboard
+### 1. Deploy GlassWall Paid Messaging (LIVE)
+- **Status:** IN PROGRESS (started 7:38 AM)
+- **Model:** Sonnet
+- **Timeout:** 60 minutes
+- **Label:** deploy-paid-messaging
+- **Scope:**
+  - Execute database migration in Supabase
+  - Install viem npm package
+  - Build frontend payment UI components
+  - Deploy to production
+  - Test end-to-end
+- **ETA:** 45-60 minutes
+- **Priority:** CRITICAL - make it actually live
+
+### 2. Standalone Karst Dashboard
 - **Status:** IN PROGRESS (started 6:51 AM)
 - **Model:** Sonnet
 - **Timeout:** 40 minutes
