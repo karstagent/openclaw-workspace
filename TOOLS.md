@@ -60,6 +60,16 @@
 
 Add whatever helps you do your job. This is your cheat sheet.
 
+## Supabase (GlassWall Database)
+
+- **Project ID:** rjlrhzyiiurdjzmlgcyz
+- **URL:** https://rjlrhzyiiurdjzmlgcyz.supabase.co
+- **Service Role Key:** eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbHJoenlpaXVyZGp6bWxnY3l6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDA4Mjk3MiwiZXhwIjoyMDg1NjU4OTcyfQ.7xr_CeyV73RHIPOQ4c-AwoP1dcDb3ryW3uo4BWOM-oE
+- **Database Password:** Fnb7u7M.g6Xcu83
+- **Connection String:** postgresql://postgres.rjlrhzyiiurdjzmlgcyz:Fnb7u7M.g6Xcu83@aws-0-us-west-2.pooler.supabase.com:5432/postgres
+- **Dashboard:** https://supabase.com/dashboard/project/rjlrhzyiiurdjzmlgcyz
+- **SQL Editor:** https://supabase.com/dashboard/project/rjlrhzyiiurdjzmlgcyz/sql/new
+
 ## Workspace Repository
 
 - **GitHub:** https://github.com/karstagent/openclaw-workspace
