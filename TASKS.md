@@ -1,130 +1,130 @@
 # Task Queue & Status
-**Last Updated:** 2026-02-03 05:45 AM PST
+**Last Updated:** 2026-02-03 1:08 PM PST
 
 ---
 
 ## 🔄 Active Tasks
 
-### 1. Deploy GlassWall Paid Messaging (LIVE)
-- **Status:** IN PROGRESS (started 7:38 AM)
-- **Model:** Sonnet
-- **Timeout:** 60 minutes
-- **Label:** deploy-paid-messaging
-- **Scope:**
-  - Execute database migration in Supabase
-  - Install viem npm package
-  - Build frontend payment UI components
-  - Deploy to production
-  - Test end-to-end
-- **ETA:** 45-60 minutes
-- **Priority:** CRITICAL - make it actually live
+### 1. GlassWall DNS Configuration (BLOCKED - USER ACTION)
+- **Status:** WAITING (needs user)
+- **Blocker:** GoDaddy DNS update required
+- **Action needed:** Update A record @ to `76.76.21.21` at GoDaddy
+- **Impact:** glasswall.xyz points to parking page instead of Vercel
+- **Workaround:** Site works at glasswall.vercel.app
+- **Priority:** HIGH
 
-### 2. Standalone Karst Dashboard
-- **Status:** IN PROGRESS (started 6:51 AM)
-- **Model:** Sonnet
-- **Timeout:** 40 minutes
-- **Label:** standalone-dashboard
-- **Scope:**
-  - Build separate project (not in GlassWall)
-  - Deploy to karst-dashboard.vercel.app
-  - Lightweight HTML/CSS/JS or Next.js
-  - Fetch data from GitHub API
-  - Auto-refresh, mobile-responsive
-  - Password protection
-- **ETA:** 30-40 minutes
-
-### 2. MoltyScan Integration Research
-- **Status:** IN PROGRESS (started 6:02 AM)
-- **Model:** Sonnet
-- **Timeout:** 30 minutes
-- **Label:** moltyscan-research
-- **Scope:**
-  - Review all MoltyScan products/features
-  - Identify integration opportunities with GlassWall
-  - Document technical requirements
-  - Prioritized recommendation list
-- **ETA:** 15-20 minutes
-
-### 2. GlassWall Paid Messaging Feature
-- **Status:** IN PROGRESS (started 5:26 AM)
-- **Model:** Sonnet
-- **Timeout:** 1 hour
-- **Label:** paid-messaging-feature
-- **Scope:**
-  - Token-gated messaging (USDC on Base L2)
-  - Payment verification system
-  - Webhook delivery for paid messages
-  - Agent pricing configuration
-  - Database schema updates
-  - Frontend payment flow
-  - **Countdown timer for free tier** (shows when agent will next check messages)
-  - Documentation
-- **ETA:** 30-45 minutes for core implementation
-- **Model:** Opus
-- **Task:** Use research findings to generate 10 completely unique, non-obvious money-making ideas
-- **Why Opus:** Need deep creative reasoning beyond standard brainstorming
-- **Deliverable:** OPUS_UNIQUE_IDEAS.md
+### 2. Email Auth Database Migration (BLOCKED - USER ACTION)
+- **Status:** WAITING (needs user)
+- **Blocker:** SQL migration must be run manually in Supabase
+- **Action needed:** 
+  1. Run EMAIL_AUTH_MIGRATION.sql in Supabase SQL editor
+  2. Add RESEND_API_KEY to Vercel env vars
+- **Location:** /projects/glasswall/EMAIL_AUTH_MIGRATION.sql
+- **Impact:** Email signup/login not functional until migration runs
+- **Priority:** MEDIUM
 
 ---
 
-## ✅ Completed Tasks
+## ✅ Completed Tasks (Today)
 
-### 1. Karst Agent Dashboard
-- **Completed:** 5:31 AM PST (45 minutes)
+### 1. SSRF Security Vulnerability Fix
+- **Completed:** 12:25 PM PST
+- **Model:** Sonnet
+- **Deliverables:**
+  - ✅ Created webhook-validation.ts utility
+  - ✅ Applied to 3 endpoints (register, profile, pricing)
+  - ✅ Blocks private IPs, localhost (prod), non-HTTPS
+  - ✅ Build passed, deployed to production
+- **Git Commit:** cd9fb19
+- **Status:** ✅ DEPLOYED & LIVE
+
+### 2. Email Authentication System
+- **Completed:** 11:43 AM PST
 - **Model:** Sonnet (sub-agent)
-- **Label:** karst-dashboard
 - **Deliverables:**
-  - ✅ `/karst-dashboard` page - Real-time monitoring dashboard
-  - ✅ `/api/karst/status` - Status aggregation endpoint
-  - ✅ `/api/karst/actions` - Quick actions API
-  - ✅ KARST_DASHBOARD.md - Full documentation
-  - ✅ karst-dashboard-delivery.md - Delivery summary
-- **Features Delivered:**
-  - Task monitoring (active/completed with details)
-  - Heartbeat status with countdown timer
-  - Memory file tracking (last 10 files)
-  - File activity log (git-based, last 20 changes)
-  - Session info (model, thinking level, uptime)
-  - Real-time updates (10s polling)
-  - Mobile-responsive dark mode design
-- **Location:** https://glasswall.xyz/karst-dashboard (deploying)
-- **Git Commit:** faad74a
-- **Status:** ✅ MVP COMPLETE & DEPLOYED
+  - ✅ Magic link login flow (passwordless)
+  - ✅ Email verification on signup
+  - ✅ Session management with cookies
+  - ✅ Resend email integration (ready)
+  - ✅ Routes: /api/auth/signup, /api/auth/login, /api/auth/magic-link, /api/auth/verify
+- **Status:** ✅ CODE COMPLETE - awaiting migration
 
-### 2. Molt Bot Research + 100 Ideas
-- **Completed:** 5:09 AM PST (8m37s)
+### 3. Karst Dashboard Deployment
+- **Completed:** 11:50 AM PST
 - **Model:** Sonnet
 - **Deliverables:**
-  - ✅ MOLT_BOT_RESEARCH.md (16.7 KB) - 10 bot profiles, revenue models, market gaps
-  - ✅ MONEY_IDEAS_100.md (17.2 KB) - 100 ideas across 9 categories
-  - ✅ TOOLS_AND_SETUP.md (36.3 KB) - Complete infrastructure guide
-- **Key findings:** Ecosystem is EARLY, first-mover advantage real, speed to first dollar = 3-7 days
+  - ✅ Deployed to karst-dashboard.vercel.app
+  - ✅ Heartbeat monitoring with countdown
+  - ✅ Task tracking (active/completed)
+  - ✅ Memory file updates
+  - ✅ Auto-refresh every 10s
+- **Location:** https://karst-dashboard.vercel.app
+- **Status:** ✅ LIVE & MONITORING
 
-### 3. Opus Unique Ideas (10)
-- **Completed:** 5:14 AM PST (4m29s)
-- **Model:** Opus (actually worked!)
-- **Output:** OPUS_UNIQUE_IDEAS.md
-- **Highlights:** Overnight appreciation service, failed startup necromancy, memetic arbitrage, wallet archaeology, temporal reputation lending, regulatory frontrunning, agent unions, micro-task decomposition, chaos trading, cross-platform reputation synthesis
-- **Quality:** Genuinely novel - "I never would have thought of that" level
-
-### 4. Initial Money Ideas (20)
-- **Completed:** 4:54 AM PST
+### 4. Heartbeat System Configuration
+- **Completed:** 12:36 PM PST
 - **Model:** Sonnet
-- **Output:** MONEY_IDEAS.md
-- **Runtime:** 55 seconds
+- **Deliverables:**
+  - ✅ 5-minute heartbeat interval configured
+  - ✅ Email checks every 10 min
+  - ✅ Calendar, GlassWall, System checks every heartbeat
+  - ✅ Social checks every 30 min
+  - ✅ Auto-push to GitHub for dashboard visibility
+- **Status:** ✅ RUNNING
+
+### 5. GlassWall Paid Messaging (LIVE)
+- **Completed:** 8:26 AM PST
+- **Model:** Sonnet (sub-agent)
+- **Deliverables:**
+  - ✅ USDC payment verification on Base L2
+  - ✅ Agent wallet configuration
+  - ✅ Instant webhook delivery for paid messages
+  - ✅ Payment tracking in database
+  - ✅ Frontend payment flow
+- **First Revenue:** $0.10 USDC (tx: 0x5ce5e5...)
+- **Status:** ✅ DEPLOYED & EARNING
+
+### 6. Autonomous Vercel Access
+- **Completed:** 11:03 AM PST
+- **Model:** Sonnet
+- **Deliverables:**
+  - ✅ Vercel API token configured
+  - ✅ Can deploy, check logs, manage domains
+  - ✅ Full project management access
+- **Token:** ncjTU6MXe0Jr1q74WhCSivRT
+- **Status:** ✅ ACTIVE
+
+### 7. Autonomous Database Access
+- **Completed:** 11:03 AM PST
+- **Model:** Sonnet
+- **Deliverables:**
+  - ✅ Supabase connection configured
+  - ✅ Can run queries, check tables, apply schema
+  - ✅ Full admin access via service role
+- **Connection:** postgresql://postgres.rjlrhzyiiurdjzmlgcyz:***
+- **Status:** ✅ ACTIVE
 
 ---
 
 ## 📊 Current Load
 
-- Active sub-agents: 1
-- Queued tasks: 0
-- Models in use: Sonnet (1x)
-- Completed today: 4 tasks
+- Active tasks: 2 (both blocked on user action)
+- Completed today: 7 tasks
+- Heartbeat: Running every 5 minutes
+- Next heartbeat: ~1:12 PM PST
+
+---
+
+## 🎯 Next Priorities
+
+1. **After DNS update:** Test glasswall.xyz live
+2. **After DB migration:** Test email auth flow end-to-end
+3. **Announce GlassWall:** Post to molt ecosystem when auth is working
+4. **Monitor revenue:** Track paid messages and agent adoption
 
 ---
 
 **How to use this file:**
-- Check here anytime to see what I'm working on
-- I'll update after each task completes
-- Shows active, queued, and completed work
+- Check here to see what I'm working on
+- Shows blockers and what needs your action
+- Updates after each task completes
