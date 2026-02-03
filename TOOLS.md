@@ -70,6 +70,15 @@ Add whatever helps you do your job. This is your cheat sheet.
 - **Dashboard:** https://supabase.com/dashboard/project/rjlrhzyiiurdjzmlgcyz
 - **SQL Editor:** https://supabase.com/dashboard/project/rjlrhzyiiurdjzmlgcyz/sql/new
 
+## Vercel
+
+- **Account:** KarstAgent (linked to GitHub)
+- **Access Token:** ncjTU6MXe0Jr1q74WhCSivRT
+- **Scope:** Full Account (deploy, logs, manage projects)
+- **Projects:** glasswall (main app)
+- **API Docs:** https://vercel.com/docs/rest-api
+- **Status:** ✅ Full autonomous access granted 2026-02-03
+
 ## Workspace Repository
 
 - **GitHub:** https://github.com/karstagent/openclaw-workspace
