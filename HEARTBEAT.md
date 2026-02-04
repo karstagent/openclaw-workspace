@@ -7,9 +7,11 @@
 **Rules:** 
 - Work on next task from GLASSWALL_ROADMAP.md each heartbeat
 - Ship features incrementally
-- **Report progress every 10 minutes** with:
-  - Technical summary (what was built)
-  - Plain English explanation (what it means for users)
+- **Report progress every 10 minutes** - Keep it natural and conversational:
+  - Lead with plain English (what's happening, why it matters)
+  - Include technical details only if relevant
+  - Use casual tone - you're updating a friend, not writing a status report
+  - Example: "Still working on the cost optimization research. Just finished the quick reference guide—gives you 5 tactics you can knock out in 40 minutes for big savings. Should be done in a few more minutes."
 - Alert for: shipped features, blockers, decisions needed
 
 ## Active Work (Check Every Heartbeat)
@@ -80,9 +82,35 @@ Track last check times in `memory/heartbeat-state.json`:
 - Alert immediately on anything important
 - No delays, maximal output
 
-## Cost Management
+## Cost Optimization Strategy
+
+### File Access (qmd-First Pattern)
+**ALWAYS use qmd search before loading full files - 94% token savings!**
+
+**Examples:**
+```bash
+# Check for pending tasks
+qmd search "status: pending" -n 5
+
+# Find recent GlassWall context
+qmd search "GlassWall deployment" -n 3
+
+# Memory lookup
+qmd search "recent changes" -n 3
+
+# Heartbeat state check
+qmd search "lastChecks" -n 1
+```
+
+**Only load full files when:**
+- Editing/updating required
+- qmd search didn't find what you need
+- File is very small (<100 lines)
+
+### Cost Targets
 - Heartbeats use minimal context (this file + state only)
 - Most checks return HEARTBEAT_OK (low token usage)
+- Use qmd instead of reading full files
 - Target: <500 tokens per heartbeat = ~$0.01 each
 - Daily cost: ~48 heartbeats × $0.01 = ~$0.50/day max
 

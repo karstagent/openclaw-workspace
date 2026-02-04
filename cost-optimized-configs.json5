@@ -1,0 +1,692 @@
+// OpenClaw Cost-Optimized Configuration Examples
+// Copy the appropriate section to ~/.openclaw/openclaw.json
+
+// =============================================================================
+// SCENARIO 1: Personal Assistant (Single User, Budget-Conscious)
+// Expected savings: 70-80% vs unoptimized
+// =============================================================================
+
+{
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      
+      // Three-tier model strategy
+      model: {
+        primary: "anthropic/claude-sonnet-4-5",
+        fallbacks: [
+          "anthropic/claude-haiku-4",  // Cheap fallback
+          "anthropic/claude-opus-4-5"  // Premium fallback (rare)
+        ]
+      },
+      
+      // Model catalog with aliases
+      models: {
+        "anthropic/claude-sonnet-4-5": { 
+          alias: "Sonnet",
+          params: { temperature: 0.7 }
+        },
+        "anthropic/claude-opus-4-5": { 
+          alias: "Opus"
+        },
+        "anthropic/claude-haiku-4": { 
+          alias: "Haiku"
+        },
+        "openrouter/deepseek/deepseek-chat": { 
+          alias: "DeepSeek"
+        }
+      },
+      
+      // Limit context window to prevent bloat
+      contextTokens: 100000,
+      
+      // Truncate large bootstrap files
+      bootstrapMaxChars: 10000,
+      
+      // Sub-agent defaults (use cheap models)
+      subagents: {
+        defaultModel: "anthropic/claude-haiku-4",
+        defaultThinking: "off"
+      }
+    }
+  },
+  
+  // Session pruning (critical for cost savings)
+  agent: {
+    contextPruning: {
+      mode: "cache-ttl",
+      ttl: "5m",  // Match to cache TTL
+      keepLastAssistants: 3,
+      softTrimRatio: 0.3,
+      hardClearRatio: 0.5,
+      minPrunableToolChars: 50000,
+      softTrim: {
+        maxChars: 4000,
+        headChars: 1500,
+        tailChars: 1500
+      },
+      hardClear: {
+        enabled: true,
+        placeholder: "[Old tool result content cleared]"
+      },
+      tools: {
+        allow: ["exec", "read", "web_fetch"],
+        deny: ["*image*"]
+      }
+    }
+  },
+  
+  // Session management
+  session: {
+    dmScope: "main",  // Single user, use main session
+    reset: {
+      mode: "daily",
+      atHour: 4,  // 4 AM reset
+      idleMinutes: 120  // Also reset after 2h idle
+    }
+  },
+  
+  // Heartbeat optimization
+  heartbeat: {
+    interval: "30m",
+    model: "anthropic/claude-haiku-4"  // Use cheapest model
+  },
+  
+  // Message settings
+  messages: {
+    groupChat: {
+      historyLimit: 20  // Limit group context
+    },
+    queue: {
+      mode: "collect",
+      debounceMs: 2000
+    },
+    inbound: {
+      debounceMs: 2000  // Batch rapid messages
+    }
+  },
+  
+  // Tool limits
+  tools: {
+    exec: {
+      maxOutputBytes: 50000,
+      timeoutSeconds: 30
+    },
+    read: {
+      maxChars: 50000
+    },
+    web: {
+      search: {
+        cacheTtlMinutes: 60,
+        maxResults: 5
+      },
+      fetch: {
+        cacheTtlMinutes: 60,
+        maxChars: 10000
+      }
+    }
+  },
+  
+  // Skills optimization
+  skills: {
+    entries: {
+      // Disable unused skills
+      "unused-skill-1": { enabled: false },
+      "unused-skill-2": { enabled: false }
+    },
+    load: {
+      watch: true,
+      watchDebounceMs: 250
+    }
+  },
+  
+  // Channels (if using)
+  channels: {
+    telegram: {
+      historyLimit: 20,
+      replyToMode: "first",
+      streamMode: "partial"
+    },
+    discord: {
+      historyLimit: 15,
+      textChunkLimit: 2000
+    }
+  }
+}
+
+// =============================================================================
+// SCENARIO 2: Multi-User / Shared Agent (Cost-Controlled)
+// Expected savings: 75-85% vs unoptimized
+// Emphasizes isolation and per-user limits
+// =============================================================================
+
+{
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      
+      model: {
+        primary: "anthropic/claude-sonnet-4-5",
+        fallbacks: ["anthropic/claude-haiku-4"]
+      },
+      
+      models: {
+        "anthropic/claude-sonnet-4-5": { alias: "Sonnet" },
+        "anthropic/claude-haiku-4": { alias: "Haiku" },
+        "openrouter/deepseek/deepseek-chat": { alias: "DeepSeek" }
+      },
+      
+      contextTokens: 75000,  // Stricter limit for shared use
+      bootstrapMaxChars: 8000,
+      
+      // Sandbox for safety in multi-user
+      sandbox: {
+        mode: "non-main",  // Sandbox non-main sessions
+        scope: "session",
+        workspaceAccess: "ro"
+      }
+    },
+    
+    // Per-user agents with different tiers
+    list: [
+      {
+        id: "premium",
+        model: "anthropic/claude-sonnet-4-5",
+        contextTokens: 100000
+      },
+      {
+        id: "standard",
+        model: "anthropic/claude-haiku-4",
+        contextTokens: 50000,
+        tools: {
+          profile: "basic"
+        }
+      },
+      {
+        id: "validator",
+        model: "anthropic/claude-haiku-4",
+        contextTokens: 30000,
+        sandbox: {
+          mode: "all",
+          workspaceAccess: "ro"
+        }
+      }
+    ]
+  },
+  
+  agent: {
+    contextPruning: {
+      mode: "cache-ttl",
+      ttl: "5m",
+      keepLastAssistants: 2,  // More aggressive pruning
+      softTrimRatio: 0.4,
+      hardClearRatio: 0.6
+    }
+  },
+  
+  session: {
+    dmScope: "per-channel-peer",  // Isolate per user+channel
+    reset: {
+      mode: "daily",
+      atHour: 4
+    },
+    resetByType: {
+      dm: { mode: "idle", idleMinutes: 180 },
+      group: { mode: "idle", idleMinutes: 60 }  // Aggressive group reset
+    },
+    sendPolicy: {
+      rules: [
+        // Block expensive delivery by default
+        { action: "deny", match: { chatType: "group" } }
+      ],
+      default: "allow"
+    }
+  },
+  
+  heartbeat: {
+    interval: "45m",  // Less frequent
+    model: "anthropic/claude-haiku-4"
+  },
+  
+  messages: {
+    groupChat: {
+      historyLimit: 15  // Strict group limit
+    }
+  },
+  
+  channels: {
+    telegram: {
+      historyLimit: 15,
+      dmHistoryLimit: 25,
+      groupPolicy: "allowlist"
+    },
+    discord: {
+      historyLimit: 10,
+      dm: {
+        policy: "pairing"
+      }
+    }
+  },
+  
+  tools: {
+    profiles: {
+      basic: {
+        allow: ["read", "exec", "sessions_list"]
+      },
+      premium: {
+        allow: ["read", "write", "exec", "web_search", "browser"]
+      }
+    }
+  }
+}
+
+// =============================================================================
+// SCENARIO 3: Development / Testing (Maximum Cost Control)
+// Expected savings: 90-95% vs unoptimized
+// Uses cheapest models, aggressive limits
+// =============================================================================
+
+{
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      
+      // Use cheapest models by default
+      model: {
+        primary: "anthropic/claude-haiku-4",
+        fallbacks: ["openrouter/deepseek/deepseek-chat"]
+      },
+      
+      models: {
+        "anthropic/claude-haiku-4": { alias: "Haiku" },
+        "openrouter/deepseek/deepseek-chat": { alias: "DeepSeek" },
+        "anthropic/claude-sonnet-4-5": { alias: "Sonnet" }  // Available but not default
+      },
+      
+      contextTokens: 50000,  // Very strict
+      bootstrapMaxChars: 5000,
+      
+      subagents: {
+        defaultModel: "openrouter/deepseek/deepseek-chat",
+        defaultThinking: "off"
+      }
+    }
+  },
+  
+  agent: {
+    contextPruning: {
+      mode: "cache-ttl",
+      ttl: "3m",  // Aggressive pruning
+      keepLastAssistants: 1,
+      softTrimRatio: 0.5,
+      hardClearRatio: 0.7,
+      minPrunableToolChars: 20000
+    }
+  },
+  
+  session: {
+    reset: {
+      mode: "idle",
+      idleMinutes: 30  // Reset frequently
+    }
+  },
+  
+  heartbeat: {
+    interval: "60m",  // Infrequent
+    model: "openrouter/deepseek/deepseek-chat"
+  },
+  
+  messages: {
+    groupChat: {
+      historyLimit: 10  // Minimal history
+    }
+  },
+  
+  tools: {
+    exec: {
+      maxOutputBytes: 20000
+    },
+    read: {
+      maxChars: 20000
+    },
+    web: {
+      search: {
+        enabled: false  // Disable expensive tools
+      },
+      fetch: {
+        maxChars: 5000
+      }
+    }
+  },
+  
+  skills: {
+    allowBundled: []  // No bundled skills, workspace only
+  }
+}
+
+// =============================================================================
+// SCENARIO 4: Production (Balanced Performance + Cost)
+// Expected savings: 60-70% vs unoptimized
+// Good balance between capability and cost
+// =============================================================================
+
+{
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      
+      model: {
+        primary: "anthropic/claude-sonnet-4-5",
+        fallbacks: [
+          "anthropic/claude-haiku-4",
+          "anthropic/claude-opus-4-5"
+        ]
+      },
+      
+      models: {
+        "anthropic/claude-sonnet-4-5": { 
+          alias: "Sonnet",
+          params: { temperature: 0.7 }
+        },
+        "anthropic/claude-opus-4-5": { 
+          alias: "Opus",
+          params: { temperature: 0.8 }
+        },
+        "anthropic/claude-haiku-4": { 
+          alias: "Haiku"
+        }
+      },
+      
+      contextTokens: 120000,  // Reasonable limit
+      bootstrapMaxChars: 15000,
+      
+      subagents: {
+        allowAgents: ["validator", "researcher"],
+        defaultModel: "anthropic/claude-haiku-4"
+      }
+    },
+    
+    list: [
+      {
+        id: "main",
+        default: true
+      },
+      {
+        id: "validator",
+        model: "anthropic/claude-haiku-4",
+        tools: {
+          profile: "validation"
+        }
+      },
+      {
+        id: "researcher",
+        model: "anthropic/claude-sonnet-4-5",
+        tools: {
+          profile: "research"
+        }
+      }
+    ]
+  },
+  
+  agent: {
+    contextPruning: {
+      mode: "cache-ttl",
+      ttl: "5m",
+      keepLastAssistants: 3,
+      softTrimRatio: 0.3,
+      hardClearRatio: 0.5
+    }
+  },
+  
+  session: {
+    dmScope: "main",
+    reset: {
+      mode: "daily",
+      atHour: 4,
+      idleMinutes: 240  // 4 hour idle reset
+    },
+    resetByType: {
+      group: { mode: "idle", idleMinutes: 120 }
+    }
+  },
+  
+  heartbeat: {
+    interval: "30m",
+    model: "anthropic/claude-haiku-4"
+  },
+  
+  messages: {
+    groupChat: {
+      historyLimit: 30  // Reasonable history
+    },
+    queue: {
+      mode: "collect",
+      debounceMs: 1500
+    }
+  },
+  
+  tools: {
+    profiles: {
+      validation: {
+        allow: ["read", "exec"]
+      },
+      research: {
+        allow: ["read", "web_search", "web_fetch"]
+      }
+    },
+    exec: {
+      maxOutputBytes: 100000  // Higher for production
+    },
+    read: {
+      maxChars: 100000
+    },
+    web: {
+      search: {
+        cacheTtlMinutes: 60,
+        maxResults: 8
+      },
+      fetch: {
+        cacheTtlMinutes: 60,
+        maxChars: 20000
+      }
+    }
+  },
+  
+  channels: {
+    telegram: {
+      historyLimit: 30,
+      replyToMode: "first",
+      streamMode: "partial"
+    },
+    discord: {
+      historyLimit: 25
+    }
+  },
+  
+  // Cron for batch operations
+  cron: {
+    enabled: true,
+    maxConcurrentRuns: 2
+  }
+}
+
+// =============================================================================
+// SCENARIO 5: Enterprise / High Volume (Cost at Scale)
+// Expected savings: 65-75% vs unoptimized
+// Optimized for high message volume with monitoring
+// =============================================================================
+
+{
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      
+      model: {
+        primary: "anthropic/claude-sonnet-4-5",
+        fallbacks: [
+          "anthropic/claude-haiku-4",
+          "openrouter/deepseek/deepseek-chat",
+          "anthropic/claude-opus-4-5"
+        ]
+      },
+      
+      models: {
+        "anthropic/claude-sonnet-4-5": { alias: "Sonnet" },
+        "anthropic/claude-opus-4-5": { alias: "Opus" },
+        "anthropic/claude-haiku-4": { alias: "Haiku" },
+        "openrouter/deepseek/deepseek-chat": { alias: "DeepSeek" }
+      },
+      
+      contextTokens: 100000,
+      bootstrapMaxChars: 12000,
+      
+      usage: {
+        enabled: true,
+        trackPerSession: true,
+        trackPerModel: true
+      }
+    },
+    
+    list: [
+      // Route by department/function
+      {
+        id: "support",
+        model: "anthropic/claude-haiku-4",  // Fast, cheap for support
+        contextTokens: 75000
+      },
+      {
+        id: "engineering",
+        model: "anthropic/claude-sonnet-4-5",
+        contextTokens: 150000
+      },
+      {
+        id: "executive",
+        model: "anthropic/claude-opus-4-5",
+        contextTokens: 200000
+      }
+    ]
+  },
+  
+  bindings: [
+    // Route different channels to different agents
+    { agentId: "support", match: { channel: "telegram", accountId: "support-bot" } },
+    { agentId: "engineering", match: { channel: "slack" } },
+    { agentId: "executive", match: { channel: "whatsapp" } }
+  ],
+  
+  agent: {
+    contextPruning: {
+      mode: "cache-ttl",
+      ttl: "5m",
+      keepLastAssistants: 3,
+      softTrimRatio: 0.35,
+      hardClearRatio: 0.55
+    }
+  },
+  
+  session: {
+    dmScope: "per-account-channel-peer",  // Strict isolation
+    reset: {
+      mode: "daily",
+      atHour: 4
+    },
+    resetByChannel: {
+      telegram: { mode: "idle", idleMinutes: 180 },
+      slack: { mode: "idle", idleMinutes: 360 },
+      whatsapp: { mode: "daily", atHour: 4 }
+    }
+  },
+  
+  heartbeat: {
+    interval: "30m",
+    model: "anthropic/claude-haiku-4"
+  },
+  
+  messages: {
+    groupChat: {
+      historyLimit: 25
+    },
+    queue: {
+      mode: "collect",
+      debounceMs: 2000,
+      cap: 30
+    }
+  },
+  
+  tools: {
+    exec: {
+      maxOutputBytes: 75000
+    },
+    read: {
+      maxChars: 75000
+    },
+    web: {
+      search: {
+        cacheTtlMinutes: 120,  // Longer cache for shared queries
+        maxResults: 6
+      },
+      fetch: {
+        cacheTtlMinutes: 120,
+        maxChars: 15000
+      }
+    }
+  },
+  
+  channels: {
+    telegram: {
+      historyLimit: 25,
+      accounts: {
+        "support-bot": {
+          dmHistoryLimit: 20
+        }
+      }
+    },
+    slack: {
+      historyLimit: 30,
+      dmHistoryLimit: 40
+    }
+  },
+  
+  // Monitoring and alerts
+  monitoring: {
+    alerts: {
+      dailyCostThreshold: 500,
+      sessionTokenThreshold: 200000,
+      heartbeatTokenRatio: 0.12
+    }
+  },
+  
+  // Cron for maintenance
+  cron: {
+    enabled: true,
+    maxConcurrentRuns: 3
+  }
+}
+
+// =============================================================================
+// Usage Instructions
+// =============================================================================
+
+/*
+1. Choose the scenario that matches your use case
+2. Copy the configuration to ~/.openclaw/openclaw.json
+3. Adjust values based on your specific needs:
+   - contextTokens: Higher = more context, higher cost
+   - heartbeat.interval: More frequent = higher cost
+   - historyLimit: More history = higher cost per message
+   - Model choices: Haiku < Sonnet < Opus in cost
+
+4. Test with:
+   openclaw status
+   openclaw models status
+   openclaw sessions
+
+5. Monitor costs with:
+   openclaw sessions --json | jq '.[] | {key, tokens: .totalTokens}'
+
+6. Iterate and optimize based on your usage patterns
+
+For full documentation, see:
+- openclaw-cost-optimization-guide.md (complete strategies)
+- cost-optimization-quick-reference.md (quick wins)
+*/

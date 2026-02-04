@@ -231,16 +231,59 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## 💰 Token Efficiency (Three-Tier Strategy)
 
 **Three-tier approach:**
-1. **Haiku** - Validation/checking (spawn sub-agent)
-2. **Sonnet** - Content creation (default, current session)
-3. **Opus** - Complex reasoning (spawn sub-agent)
+1. **Haiku** (~$0.25/1M) - Validation/checking (spawn sub-agent)
+2. **Sonnet** (~$3/1M) - Content creation (default, current session)
+3. **Opus** (~$15/1M) - Complex reasoning (spawn sub-agent)
 
-**Quick rules:**
-- Simple validation → Haiku sub-agent
+**Cost savings: 98% on validation, 80% on auxiliary tasks**
+
+### Practical Examples
+
+**Tier 1: Haiku (Validation)**
+```javascript
+// Check format, validate structure, simple yes/no
+sessions_spawn({
+  model: "haiku",
+  task: "Is this valid JSON? Reply only YES or NO: {...}",
+  thinking: "off"
+})
+
+// Extract data
+sessions_spawn({
+  model: "haiku",
+  task: "Extract all email addresses from this text: {...}"
+})
+```
+
+**Tier 2: Sonnet (Current Session)**
+- Writing code, creating content
+- Most user interactions
+- Building features
+
+**Tier 3: Opus (Complex Only)**
+```javascript
+// Architecture, debugging, stuck problems
+sessions_spawn({
+  model: "sonnet",  // or upgrade to opus if stuck
+  task: "Debug this complex race condition in the payment flow..."
+})
+```
+
+### Decision Matrix
+| Task Type | Model | Cost/1M | When to Use |
+|-----------|-------|---------|-------------|
+| Format check | Haiku | $0.25 | JSON/email/URL validation |
+| Data extraction | Haiku | $0.25 | Parse, extract, simple transform |
+| Code writing | Sonnet | $3 | Default for building |
+| Architecture | Sonnet/Opus | $3-15 | Complex design, stuck issues |
+
+### Quick Rules
+- Simple validation → Haiku sub-agent (98% cheaper than Opus)
 - Building/writing → Sonnet (default)
-- Stuck/complex → Opus sub-agent
+- Stuck/complex → Try Sonnet first, escalate to Opus if needed
+- **Always spawn sub-agents for validation** - never use main session
 
-See `TOKEN_STRATEGY.md` for full best practices.
+See `COST_OPTIMIZATION_STATUS.md` for implementation details and `TOKEN_STRATEGY.md` for full best practices.
 
 ## Make It Yours
 
