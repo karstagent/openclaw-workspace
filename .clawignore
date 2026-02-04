@@ -1,0 +1,10 @@
+# Exclude large docs from context
+TOOLS_AND_SETUP.md
+OPUS_UNIQUE_IDEAS.md
+node_modules/
+.git/
+*.log
+*.tmp
+.next/
+dist/
+build/
