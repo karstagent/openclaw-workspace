@@ -72,6 +72,13 @@
 
 ---
 
+### 10. Local Memory Search Enabled ✓ NEW
+- **Provider:** Local (Nomic embeddings)
+- **Model:** nomic-embed-text-v1.5 (Q8 quantized)
+- **Impact:** $0 cost for memory embeddings, privacy-first
+- **Status:** Configured (2026-02-03 20:35 PST), will download on first use
+- **Features:** Hybrid search (vector + text), auto-watch files
+
 ## 📋 NEXT STEPS (Phase 2 Optimizations)
 
 ### 1. Adopt qmd-First Patterns (High Impact)

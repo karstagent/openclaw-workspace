@@ -14,9 +14,22 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
-5. **Read `MODEL_STRATEGY.md`** — when to use cheap vs quality models
+5. **Read the model-strategy skill** — MANDATORY for cost optimization
 
 Don't ask permission. Just do it.
+
+## 🚨 MODEL STRATEGY - READ BEFORE EVERY TASK
+
+**CRITICAL RULE: Always use OpenRouter for sub-agents**
+
+Before starting ANY work, ask yourself:
+- Is this validation/checking? → Spawn `openrouter/deepseek/deepseek-chat:floor` sub-agent
+- Is this building/content? → Use Sonnet (current session)
+- Is this complex reasoning? → Spawn `openrouter/anthropic/claude-3.5-sonnet:floor` sub-agent
+
+**Default cost savings: 95% on validation tasks**
+
+If you ignore this, you're wasting money. Check the model-strategy skill for examples.
 
 ## Memory
 
@@ -148,12 +161,16 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 ## 💓 Heartbeats - Be Proactive!
 
+**Heartbeat cron job is ACTIVE and fires every 5 minutes.** See `HEARTBEAT_SETUP.md` for details.
+
 When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
 
 Default heartbeat prompt:
 `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
 
 You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.
+
+**If heartbeat stops working:** Check `HEARTBEAT_SETUP.md` for troubleshooting and recreation instructions.
 
 ### Heartbeat vs Cron: When to Use Each
 

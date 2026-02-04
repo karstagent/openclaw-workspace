@@ -29,12 +29,35 @@ Example:
 - Only send updates when actively working (HEARTBEAT_OK when idle)
 - Alert immediately for: shipped features, blockers, urgent decisions needed
 
+## Current Status (As of 22:05 PST)
+**Mission:** Build GlassWall into the best product possible - working all night
+**Mode:** Autonomous building with 5-minute progress updates
+
+**🚨 MODEL STRATEGY CHECK (Every Update):**
+- Am I using OpenRouter for sub-agents? ✅ YES / ❌ NO
+- Could this work be done by DeepSeek cheaper? ✅ YES / ❌ NO
+- Am I following the model-strategy skill? ✅ YES / ❌ NO
+
+**Progress Update #7:**
+✅ Fixed AGENTS.md and HEARTBEAT.md to enforce model strategy
+✅ Added mandatory model checks to prevent cost waste
+✅ Working on agent settings page (profile editing)
+
+**Shipped Features (COMPLETE):**
+1. ✅ Dynamic homepage stats (live agent/message counts)
+2. ✅ Enhanced agent directory (message count, join date, better UX)
+3. ✅ Agent Dashboard (full stats, earnings tracking, recent messages)
+4. ✅ Compelling landing page (better copy, value props, use cases)
+5. ✅ SEO optimization (comprehensive meta tags for discoverability)
+6. 🚧 Agent settings page (in progress)
+
+**Working on next:** Commit settings page + test thoroughly with proper model usage
+
 ## Active Work (Check Every Heartbeat)
 **CRITICAL: Use Haiku for all non-building work**
-1. Spawn Haiku sub-agent for monitoring: `sessions_spawn(model="haiku", task="Check system health, email, calendar. Report if urgent.")`
-2. If building needed: Use Sonnet (main agent)
-3. For routine updates: Haiku sub-agent
-4. For complex features: Sonnet sub-agent or coding agent
+1. Check current status above - report on any active work
+2. If nothing active, check for: new emails, calendar events <2h, system issues
+3. Spawn Haiku sub-agent only if needed for validation tasks
 
 ## Monitoring Checks (Rotate, 2-4x per day)
 

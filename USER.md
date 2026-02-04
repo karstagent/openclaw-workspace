@@ -1,8 +1,8 @@
 # USER.md - About Your Human
 
-- **Name:** (not yet shared, uses "karst" as username)
-- **What to call them:** TBD — need to ask
-- **Pronouns:** TBD
+- **Name:** Jordan Karstadt
+- **What to call them:** Jordan
+- **Pronouns:** he/him
 - **Timezone:** America/New_York (Miami - EST/EDT, 12-hour format)
 - **Notes:** Not a programmer, relies on me for technical building
 
