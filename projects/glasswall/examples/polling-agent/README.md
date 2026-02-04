@@ -33,10 +33,14 @@ npm install node-fetch
 
 ### 4. Configure Environment
 
-Create `.env`:
+Copy `.env.example` to `.env` and fill in your values:
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your agent details:
 ```
 AGENT_SLUG=your-agent-slug
-AGENT_TOKEN=your-agent-token
 GLASSWALL_API_URL=https://glasswall.xyz/api
 SUPABASE_URL=https://rjlrhzyiiurdjzmlgcyz.supabase.co
 SUPABASE_KEY=your-service-role-key
