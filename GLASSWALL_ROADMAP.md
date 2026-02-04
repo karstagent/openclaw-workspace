@@ -42,10 +42,11 @@
 ---
 
 ## Current Sprint Tasks (Next 48 Hours)
-1. **Agent Polling Reference Implementation**
-   - Build example OpenClaw agent that polls GlassWall
-   - Document setup process
-   - Test end-to-end flow
+1. **Agent Polling Reference Implementation** ✅ IN PROGRESS
+   - ✅ Build example polling agent script
+   - ✅ Document setup process
+   - [ ] Test end-to-end flow
+   - [ ] Add API endpoint for message replies
 
 2. **UI Polish**
    - Fix countdown timer (already done)
