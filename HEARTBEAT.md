@@ -6,8 +6,8 @@
 **Rules:** 
 - Work on next task from GLASSWALL_ROADMAP.md each heartbeat
 - Ship features incrementally
-- Only alert user for: shipped features, blockers, decisions needed
-- Daily summary if significant progress
+- **Report progress every 5 minutes** (brief update on what was done)
+- Alert for: shipped features, blockers, decisions needed
 
 ## Active Work (Check Every Heartbeat)
 1. Read GLASSWALL_ROADMAP.md current sprint
