@@ -6,7 +6,9 @@
 **Rules:** 
 - Work on next task from GLASSWALL_ROADMAP.md each heartbeat
 - Ship features incrementally
-- **Report progress every 5 minutes** (brief update on what was done)
+- **Report progress every 5 minutes** with:
+  - Technical summary (what was built)
+  - Plain English explanation (what it means for users)
 - Alert for: shipped features, blockers, decisions needed
 
 ## Active Work (Check Every Heartbeat)
