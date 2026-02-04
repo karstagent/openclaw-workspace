@@ -1,7 +1,7 @@
 // Configuration
 const CONFIG = {
     // GitHub API endpoints
-    GITHUB_REPO: 'KarstAgent/openclaw-workspace', // Change this to your actual repo
+    GITHUB_REPO: 'karstagent/openclaw-workspace', // Change this to your actual repo
     GITHUB_BRANCH: 'main',
     
     // Files to fetch
@@ -10,7 +10,7 @@ const CONFIG = {
         HEARTBEAT: 'memory/heartbeat-state.json',
     },
     
-    // Update interval (ms)
+    // Update interval (ms) - 10 seconds for real-time monitoring
     REFRESH_INTERVAL: 10000,
     
     // Password (stored in localStorage after first auth)
@@ -100,12 +100,12 @@ function parseTasks(markdown) {
     const active = [];
     const completed = [];
     
-    const activeSection = markdown.match(/## 🔄 Active Tasks([\s\S]*?)(?=##|$)/);
-    const completedSection = markdown.match(/## ✅ Completed Tasks([\s\S]*?)(?=##|$)/);
+    const activeSection = markdown.match(/## 🔄 Active Tasks\n([\s\S]*?)\n## /);
+    const completedSection = markdown.match(/## ✅ Completed Tasks\n([\s\S]*?)\n## /);
     
     // Parse active tasks
     if (activeSection) {
-        const taskBlocks = activeSection[1].split(/###\s+\d+\.\s+/).slice(1);
+        const taskBlocks = activeSection[1].split(/\n### \d+\. /).filter(b => b.trim());
         taskBlocks.forEach(block => {
             const lines = block.split('\n');
             const title = lines[0].trim();
@@ -123,7 +123,7 @@ function parseTasks(markdown) {
     
     // Parse completed tasks (last 5)
     if (completedSection) {
-        const taskBlocks = completedSection[1].split(/###\s+\d+\.\s+/).slice(1, 6);
+        const taskBlocks = completedSection[1].split(/\n### \d+\. /).filter(b => b.trim()).slice(0, 5);
         taskBlocks.forEach(block => {
             const lines = block.split('\n');
             const title = lines[0].trim();

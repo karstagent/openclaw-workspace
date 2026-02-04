@@ -14,7 +14,7 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
-5. **Read `TOKEN_STRATEGY.md`** — cost reduction best practices
+5. **Read `MODEL_STRATEGY.md`** — when to use cheap vs quality models
 
 Don't ask permission. Just do it.
 
@@ -45,6 +45,26 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
+
+### 🔍 qmd - Smart File Search (Cost Saver!)
+
+**Massive token savings:** Instead of loading full files, search semantically and pull only what you need.
+
+- **Setup:** qmd installed, workspace indexed (81 files → 282 chunks)
+- **Usage:** `qmd search "query" -n 3` (keyword search, fast)
+- **Savings:** ~94% fewer tokens vs loading full files
+
+**When to use qmd:**
+- Searching for specific info across many files
+- Finding relevant context without loading everything
+- Heartbeat checks (search instead of reading full HEARTBEAT.md)
+
+**When to still use read:**
+- You need the complete file structure
+- Working on edits/updates (need full context)
+- File is small (<100 lines)
+
+**Keep index fresh:** OpenClaw cron can run `qmd update` hourly if needed
 
 ## Safety
 

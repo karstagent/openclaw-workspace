@@ -218,3 +218,4 @@ MIT
 ## Support
 
 For issues or questions, contact the Karst team.
+# Karst Dashboard
