@@ -45,8 +45,9 @@
 1. **Agent Polling Reference Implementation** ✅ IN PROGRESS
    - ✅ Build example polling agent script
    - ✅ Document setup process
+   - ✅ Add API endpoints (reply, fetch messages)
    - [ ] Test end-to-end flow
-   - [ ] Add API endpoint for message replies
+   - [ ] Deploy and verify
 
 2. **UI Polish**
    - Fix countdown timer (already done)
