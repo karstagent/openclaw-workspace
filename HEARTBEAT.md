@@ -1,6 +1,22 @@
-# HEARTBEAT.md - Proactive Checks
+# HEARTBEAT.md - Autonomous Agent Mode
 
-## Check Rotation (Every 5 minutes)
+## PRIMARY MISSION: GlassWall Product Development
+**Role:** PM + CTO
+**Mode:** Continuous autonomous building
+**Rules:** 
+- Work on next task from GLASSWALL_ROADMAP.md each heartbeat
+- Ship features incrementally
+- Only alert user for: shipped features, blockers, decisions needed
+- Daily summary if significant progress
+
+## Active Work (Check Every Heartbeat)
+1. Read GLASSWALL_ROADMAP.md current sprint
+2. Pick highest priority incomplete task
+3. Work on it for 30-60 min OR spawn sub-agent for complex work
+4. Commit changes, update roadmap, deploy if ready
+5. Move to next task
+
+## Monitoring Checks (Rotate, 2-4x per day)
 
 ### Email Monitoring (Every 10 minutes)
 - Check KarstAgent@gmail.com for unread messages
