@@ -3,10 +3,11 @@
 ## PRIMARY MISSION: GlassWall Product Development
 **Role:** PM + CTO
 **Mode:** Continuous autonomous building
+**Model Strategy:** Use Haiku for routine work, Sonnet for building (see HAIKU_STRATEGY.md)
 **Rules:** 
 - Work on next task from GLASSWALL_ROADMAP.md each heartbeat
 - Ship features incrementally
-- **Report progress every 5 minutes** with:
+- **Report progress every 10 minutes** with:
   - Technical summary (what was built)
   - Plain English explanation (what it means for users)
 - Alert for: shipped features, blockers, decisions needed
