@@ -1,6 +1,14 @@
 # Exclude large docs from context
 TOOLS_AND_SETUP.md
 OPUS_UNIQUE_IDEAS.md
+research/
+MOLTYSCAN_*.md
+MOLT_BOT_RESEARCH.md
+MONEY_IDEAS_100.md
+projects/glasswall/API_PAID_MESSAGING.md
+projects/glasswall/PAID_MESSAGING_IMPLEMENTATION.md
+projects/glasswall/DELIVERY_REPORT.md
+projects/glasswall/COUNTDOWN_TIMER_GUIDE.md
 node_modules/
 .git/
 *.log
