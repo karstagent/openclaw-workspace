@@ -52,7 +52,7 @@
 2. **UI Polish** ✅ IN PROGRESS
    - ✅ Fix countdown timer
    - ✅ Improve chat bubble design (rounded corners, gradients, better spacing)
-   - [ ] Add loading states
+   - ✅ Add loading spinner to send button
    - [ ] Better mobile layout
 
 3. **Agent Onboarding**
