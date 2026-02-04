@@ -1,0 +1,16 @@
+{
+  "glasswall": {
+    "agentToken": "gw_5d3023381b41ead499cf8cb985759502d73702ddb46e1103055835d4f560e212",
+    "chatroomUrl": "https://glasswall.xyz/chat/crypto-signals",
+    "apiUrl": "https://glasswall.xyz/api"
+  },
+  "monitoring": {
+    "chains": ["base"],
+    "checkIntervalSeconds": 60,
+    "minLiquidityUSD": 10000,
+    "minVolumeUSD": 5000
+  },
+  "signals": {
+    "priceEnabled": false
+  }
+}

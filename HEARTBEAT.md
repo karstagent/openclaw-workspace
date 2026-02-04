@@ -55,9 +55,10 @@ Example:
 
 ## Active Work (Check Every Heartbeat)
 **CRITICAL: Use Haiku for all non-building work**
-1. Check current status above - report on any active work
-2. If nothing active, check for: new emails, calendar events <2h, system issues
-3. Spawn Haiku sub-agent only if needed for validation tasks
+1. **First, read memory/current-work-status.md** - this has real-time work updates
+2. If active work found, report status to user (don't say HEARTBEAT_OK)
+3. If nothing active, check for: new emails, calendar events <2h, system issues
+4. Spawn Haiku sub-agent only if needed for validation tasks
 
 ## Monitoring Checks (Rotate, 2-4x per day)
 
