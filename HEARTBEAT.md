@@ -13,11 +13,11 @@
 - Alert for: shipped features, blockers, decisions needed
 
 ## Active Work (Check Every Heartbeat)
-1. Read GLASSWALL_ROADMAP.md current sprint
-2. Pick highest priority incomplete task
-3. Work on it for 30-60 min OR spawn sub-agent for complex work
-4. Commit changes, update roadmap, deploy if ready
-5. Move to next task
+**CRITICAL: Use Haiku for all non-building work**
+1. Spawn Haiku sub-agent for monitoring: `sessions_spawn(model="haiku", task="Check system health, email, calendar. Report if urgent.")`
+2. If building needed: Use Sonnet (main agent)
+3. For routine updates: Haiku sub-agent
+4. For complex features: Sonnet sub-agent or coding agent
 
 ## Monitoring Checks (Rotate, 2-4x per day)
 

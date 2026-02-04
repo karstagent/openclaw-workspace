@@ -24,9 +24,29 @@ Reduce costs by 70-80% while maintaining build quality
 6. **React/TypeScript** - component logic, type definitions
 
 ## Implementation
-- Spawn Haiku sub-agents for routine work: `sessions_spawn(task="...", model="haiku")`
-- Use Sonnet (self) only for complex building
-- Batch Haiku tasks together when possible
+**MANDATORY: Everything non-building uses Haiku**
+
+### Haiku sub-agents for:
+- Heartbeat monitoring (spawn at each heartbeat)
+- Status checks (Vercel, database, API)
+- File operations (git commits, updates)
+- Progress tracking (roadmap updates, memory logs)
+- Verification (test if deployments worked)
+
+### Sonnet only for:
+- Building new features
+- Complex debugging
+- Architecture decisions
+- Direct conversation with user (current session)
+
+### How to spawn:
+```
+sessions_spawn(
+  model="haiku",
+  task="Check email, calendar, GlassWall for issues. Alert if urgent, otherwise reply OK.",
+  cleanup="delete"
+)
+```
 
 ## Expected Savings
 - Current: ~$5-10/day
