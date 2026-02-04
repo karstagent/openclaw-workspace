@@ -19,10 +19,11 @@
 - **Usage:** Manual spawn with `model="haiku"` parameter
 
 ### 3. Heartbeat Optimized ✓
-- **Interval:** 30 minutes
+- **Interval:** 5 minutes (updated 2026-02-03)
 - **Model:** DeepSeek ($0.14/1M tokens)
-- **Impact:** 50-70% reduction vs frequent checks
-- **Status:** Active, uses HEARTBEAT.md for instructions
+- **Frequency:** More frequent for active progress updates
+- **Impact:** Ultra-cheap model makes frequent checks viable
+- **Status:** Active, provides 5min progress updates
 
 ### 4. Group History Limited ✓
 - **Limit:** 20 messages
@@ -49,9 +50,9 @@
 
 ### 8. Web Tool Caching Enabled ✓ NEW
 - **web_search cache:** 60 minutes
-- **web_fetch cache:** 60 minutes, 10K char limit
-- **Impact:** 60% savings on repeated searches
-- **Status:** Just applied (2026-02-03 20:23 PST)
+- **web_fetch cache:** 60 minutes, unlimited size
+- **Impact:** 60% savings on repeated searches, full research capability
+- **Status:** Applied (2026-02-03 20:23 PST), unlimited (20:29 PST)
 
 ### 9. qmd Installed & Indexed ✓
 - **Location:** `/Users/karst/.bun/bin/qmd`

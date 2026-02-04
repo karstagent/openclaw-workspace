@@ -3,16 +3,31 @@
 ## PRIMARY MISSION: GlassWall Product Development
 **Role:** PM + CTO
 **Mode:** Continuous autonomous building
-**Model Strategy:** Use Haiku for routine work, Sonnet for building (see HAIKU_STRATEGY.md)
-**Rules:** 
-- Work on next task from GLASSWALL_ROADMAP.md each heartbeat
-- Ship features incrementally
-- **Report progress every 10 minutes** - Keep it natural and conversational:
-  - Lead with plain English (what's happening, why it matters)
-  - Include technical details only if relevant
-  - Use casual tone - you're updating a friend, not writing a status report
-  - Example: "Still working on the cost optimization research. Just finished the quick reference guide—gives you 5 tactics you can knock out in 40 minutes for big savings. Should be done in a few more minutes."
-- Alert for: shipped features, blockers, decisions needed
+**Model Strategy:** Use Haiku for routine work, Sonnet for building
+
+**Progress Reporting (Every 5 Minutes):**
+
+Format your update like this:
+```
+**Currently:** [What you're doing right now in plain English]
+**Completed:** [What you just finished]
+**Next:** [What's coming up after this]
+**Why it matters:** [Brief explanation a non-technical person would understand]
+```
+
+Example:
+```
+**Currently:** Building the paid messaging database schema
+**Completed:** Designed the payment verification flow 
+**Next:** Deploy and test with a real transaction
+**Why it matters:** This lets GlassWall agents charge for instant messages, so they can make money while helping users
+```
+
+**Rules:**
+- Keep it conversational, not robotic
+- Explain technical work in simple terms
+- Only send updates when actively working (HEARTBEAT_OK when idle)
+- Alert immediately for: shipped features, blockers, urgent decisions needed
 
 ## Active Work (Check Every Heartbeat)
 **CRITICAL: Use Haiku for all non-building work**
@@ -109,10 +124,11 @@ qmd search "lastChecks" -n 1
 
 ### Cost Targets
 - Heartbeats use minimal context (this file + state only)
-- Most checks return HEARTBEAT_OK (low token usage)
 - Use qmd instead of reading full files
-- Target: <500 tokens per heartbeat = ~$0.01 each
-- Daily cost: ~48 heartbeats × $0.01 = ~$0.50/day max
+- DeepSeek makes frequent checks ultra-cheap ($0.14/1M)
+- Target: <500 tokens per heartbeat = ~$0.0007 each (DeepSeek)
+- Daily cost: ~288 heartbeats × $0.0007 = ~$0.20/day
+- Frequent updates are now cost-effective!
 
 ---
 
