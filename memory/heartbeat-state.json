@@ -1,0 +1,80 @@
+{
+  "lastChecks": {
+    "kanban": 1770766204.934849,
+    "systemHealth": 1770765905.660728,
+    "apiHealth": 1707587035,
+    "glasswall": 1707588300,
+    "missionControl": 1770692124.1600928,
+    "deploymentStatus": 1770765995.9338071,
+    "commandStation": 1703276000,
+    "platformsResearch": 1770669357,
+    "webSearch": 1703278000,
+    "memoryMaintenance": 1703279000
+  },
+  "checkPriorities": {
+    "kanban": 100,
+    "systemHealth": 90,
+    "apiHealth": 80,
+    "glasswall": 70,
+    "missionControl": 60,
+    "deploymentStatus": 50,
+    "commandStation": 40,
+    "platformsResearch": 30,
+    "webSearch": 20,
+    "memoryMaintenance": 10
+  },
+  "checkIntervals": {
+    "kanban": 420,
+    "systemHealth": 840,
+    "apiHealth": 1680,
+    "glasswall": 1680,
+    "missionControl": 3360,
+    "deploymentStatus": 3360,
+    "commandStation": 3360,
+    "platformsResearch": 6720,
+    "webSearch": 6720,
+    "memoryMaintenance": 20160
+  },
+  "timeWindows": {
+    "kanban": {
+      "start": 0,
+      "end": 24
+    },
+    "systemHealth": {
+      "start": 0,
+      "end": 24
+    },
+    "apiHealth": {
+      "start": 0,
+      "end": 24
+    },
+    "glasswall": {
+      "start": 0,
+      "end": 24
+    },
+    "missionControl": {
+      "start": 0,
+      "end": 24
+    },
+    "deploymentStatus": {
+      "start": 0,
+      "end": 24
+    },
+    "commandStation": {
+      "start": 0,
+      "end": 24
+    },
+    "platformsResearch": {
+      "start": 10,
+      "end": 22
+    },
+    "webSearch": {
+      "start": 9,
+      "end": 23
+    },
+    "memoryMaintenance": {
+      "start": 0,
+      "end": 24
+    }
+  }
+}

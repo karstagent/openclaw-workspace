@@ -1,0 +1,5 @@
+AUTONOMOUS DASHBOARD TASK: Build Responsive Layout System
+
+Create a comprehensive responsive layout system that adapts seamlessly to all device sizes from mobile to large desktop displays. Implement a fluid grid system, responsive typography, and adaptive component layouts. Ensure proper breakpoints, content prioritization on smaller screens, and touch-friendly interactions. Test thoroughly across device sizes and orientations. Make sure all interactive elements have appropriate hit areas for touch devices. The dashboard should feel native and optimized regardless of screen size or input method. Read /Users/karst/.openclaw/workspace/autonomous/quality_instructions.json for detailed requirements.
+
+This is an automated task. Please complete this fully with no human intervention. Save all outputs to the appropriate files in the workspace. When finished, respond with 'TASK COMPLETE: <summary of what was accomplished>'.

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "task-1",
+    "name": "Initialize Project Structure",
+    "status": "completed",
+    "description": "Set up the Next.js project with TypeScript, TailwindCSS, and required dependencies.",
+    "completed_at": "2026-02-06T22:18:40.503505"
+  },
+  {
+    "id": "task-2",
+    "name": "Create Liquid Glass UI Components",
+    "status": "completed",
+    "description": "Implement reusable UI components with the liquid glass aesthetic.",
+    "completed_at": "2026-02-06T22:19:31.575370"
+  },
+  {
+    "id": "task-3",
+    "name": "Build Dashboard Layout",
+    "status": "completed",
+    "description": "Create the main layout with sidebar, header, and content area.",
+    "completed_at": "2026-02-06T22:20:02.627983"
+  },
+  {
+    "id": "task-4",
+    "name": "Implement Dashboard Overview",
+    "status": "completed",
+    "description": "Build the main dashboard with statistics, charts, and activity feed.",
+    "completed_at": "2026-02-06T22:20:32.717427"
+  },
+  {
+    "id": "task-5",
+    "name": "Create Mission Control",
+    "status": "completed",
+    "description": "Implement task management system with Kanban board.",
+    "completed_at": "2026-02-06T22:21:44.740237"
+  },
+  {
+    "id": "task-6",
+    "name": "Build GlassWall Interface",
+    "status": "completed",
+    "description": "Create the agent communication interface with messaging capabilities.",
+    "completed_at": "2026-02-06T22:22:38.777759"
+  },
+  {
+    "id": "task-7",
+    "name": "Implement System Monitor",
+    "status": "pending",
+    "description": "Build real-time monitoring system for processes and resources."
+  },
+  {
+    "id": "task-8",
+    "name": "Create Analytics Dashboard",
+    "status": "pending",
+    "description": "Implement data visualization for system performance metrics."
+  },
+  {
+    "id": "task-9",
+    "name": "Add Command Station",
+    "status": "pending",
+    "description": "Build command execution interface with terminal access."
+  },
+  {
+    "id": "task-10",
+    "name": "Implement Settings Page",
+    "status": "pending",
+    "description": "Create configuration interface for all system settings."
+  },
+  {
+    "id": "task-11",
+    "name": "Final Integration",
+    "status": "pending",
+    "description": "Connect all components and ensure seamless integration."
+  }
+]

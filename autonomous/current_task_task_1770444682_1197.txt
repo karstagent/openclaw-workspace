@@ -1,0 +1,5 @@
+AUTONOMOUS DASHBOARD TASK: Implement Advanced Data Visualization
+
+Create sophisticated, interactive data visualization components for the dashboard. Implement chart types including area, bar, line, scatter, and pie with smooth animations and transitions. Add tooltips, zoom, pan, and selection capabilities. Ensure visualizations are responsive and accessibility-compliant. Use a high-performance charting library and ensure all visualizations have consistent styling with the dashboard theme. Visualizations should update in real-time where applicable and degrade gracefully on smaller screens. Read /Users/karst/.openclaw/workspace/autonomous/quality_instructions.json for detailed requirements.
+
+This is an automated task. Please complete this fully with no human intervention. Save all outputs to the appropriate files in the workspace. When finished, respond with 'TASK COMPLETE: <summary of what was accomplished>'.

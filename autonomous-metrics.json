@@ -1,0 +1,29 @@
+{
+  "task_origin": {
+    "self_initiated": 3,
+    "requested": 21
+  },
+  "time_metrics": {
+    "avg_opportunity_to_action_hours": 0,
+    "avg_problem_to_solution_hours": 0
+  },
+  "impact_metrics": {
+    "time_saved_hours": 0,
+    "problems_prevented": 0,
+    "system_improvements": 0
+  },
+  "initiative_areas": {
+    "monitoring": 0,
+    "documentation": 0,
+    "automation": 0,
+    "research": 0
+  },
+  "historical": [
+    {
+      "date": "2026-02-09",
+      "self_initiated": 3,
+      "requested": 21,
+      "ratio": 0.14285714285714285
+    }
+  ]
+}

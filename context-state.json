@@ -1,0 +1,51 @@
+{
+  "sessions": {
+    "test-session-1770677318": {
+      "last_message_id": "msg_4",
+      "message_count": 5,
+      "messages": [
+        {
+          "id": "msg_0",
+          "timestamp": "2026-02-09T14:48:38.793318",
+          "role": "user",
+          "hash": "311013fc577effb87a71908c291f3b2e"
+        },
+        {
+          "id": "msg_1",
+          "timestamp": "2026-02-09T14:48:38.793456",
+          "role": "assistant",
+          "hash": "b607df2baaced02c7a7f5c3dc6973301"
+        },
+        {
+          "id": "msg_2",
+          "timestamp": "2026-02-09T14:48:38.793542",
+          "role": "user",
+          "hash": "eb358e3643d31724ce33e560680cb7eb"
+        },
+        {
+          "id": "msg_3",
+          "timestamp": "2026-02-09T14:48:38.793629",
+          "role": "assistant",
+          "hash": "b9afe9a60f2780a1e251833ece30601a"
+        },
+        {
+          "id": "msg_4",
+          "timestamp": "2026-02-09T14:48:38.793715",
+          "role": "user",
+          "hash": "b88ec2b17a028bed3d05995113479cd9"
+        }
+      ],
+      "last_activity": "2026-02-09T14:48:38.793715",
+      "compactions": []
+    }
+  },
+  "last_compaction_time": null,
+  "last_update": "2026-02-09T14:48:38.793718",
+  "message_hashes": [
+    "311013fc577effb87a71908c291f3b2e",
+    "b607df2baaced02c7a7f5c3dc6973301",
+    "eb358e3643d31724ce33e560680cb7eb",
+    "b9afe9a60f2780a1e251833ece30601a",
+    "b88ec2b17a028bed3d05995113479cd9"
+  ]
+}

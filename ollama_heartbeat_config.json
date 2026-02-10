@@ -1,0 +1,12 @@
+{
+    "heartbeat": {
+        "model": "ollama/mistral:7b-instruct",
+        "every": "1h",
+        "prompt": "Perform a system health check. Report CPU usage, RAM availability, and any critical warnings in under 100 tokens.",
+        "output_file": "/tmp/ollama_heartbeat_log.txt"
+    },
+    "optimization": {
+        "token_limit": 100,
+        "model_preference": "local_lightweight"
+    }
+}

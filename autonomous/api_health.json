@@ -1,0 +1,26 @@
+{
+  "OpenAI": {
+    "healthy": false,
+    "statusCode": 401,
+    "timestamp": "2026-02-10T09:00:35.023389",
+    "critical": true
+  },
+  "Anthropic": {
+    "healthy": false,
+    "statusCode": 405,
+    "timestamp": "2026-02-10T09:00:35.188559",
+    "critical": true
+  },
+  "OpenRouter": {
+    "healthy": true,
+    "statusCode": 200,
+    "timestamp": "2026-02-10T09:00:35.377028",
+    "critical": true
+  },
+  "Vercel": {
+    "healthy": false,
+    "statusCode": 403,
+    "timestamp": "2026-02-10T09:00:35.707390",
+    "critical": false
+  }
+}

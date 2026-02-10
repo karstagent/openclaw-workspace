@@ -1,0 +1,9 @@
+*/15 * * * * /Users/karst/.openclaw/workspace/ensure_workflow_running.sh
+# Run Kanban task management heartbeat check every 15 minutes
+*/15 * * * * /Users/karst/.openclaw/workspace/kanban-heartbeat-handler.py >> /Users/karst/.openclaw/workspace/logs/kanban-heartbeat.log 2>&1
+# Run intelligent heartbeat system every 5 minutes
+*/5 * * * * /Users/karst/.openclaw/workspace/heartbeat-runner.py >> /Users/karst/.openclaw/workspace/logs/heartbeat-runner.log 2>&1
+# Ensure Mission Control dashboard is running every 5 minutes
+*/5 * * * * /Users/karst/.openclaw/workspace/ensure_mission_control_running.sh
+# Run visible Kanban update every 5 minutes
+*/5 * * * * /Users/karst/.openclaw/workspace/kanban-update-cron.sh

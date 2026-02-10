@@ -1,0 +1,13 @@
+AUTONOMOUS DASHBOARD TASK: Implement Mission Control Integration
+
+Create the Mission Control page that integrates with the existing task management system. Include:
+
+1. Kanban-style board for task management
+2. Task creation/editing interface
+3. Task filtering and search
+4. Task status transitions
+5. Priority indicators
+
+Implement this page at /Users/karst/.openclaw/workspace/unified-dashboard/src/app/mission-control/page.tsx.
+
+This is an automated task. Please complete this fully with no human intervention. Save all outputs to the appropriate files in the workspace. When finished, respond with 'TASK COMPLETE: <summary of what was accomplished>'.

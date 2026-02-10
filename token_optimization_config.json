@@ -1,0 +1,29 @@
+{
+    "global_settings": {
+        "max_total_tokens_per_session": 50000,
+        "token_warning_threshold": 40000,
+        "default_compression_threshold": 3000
+    },
+    "model_routing": {
+        "gpt-3.5-turbo": {
+            "max_tokens": 4096,
+            "cost_per_1k_tokens": 0.0015,
+            "recommended_for": ["simple_tasks", "quick_responses"]
+        },
+        "claude-3-haiku": {
+            "max_tokens": 8192,
+            "cost_per_1k_tokens": 0.0025,
+            "recommended_for": ["medium_complexity_tasks"]
+        },
+        "claude-3-opus": {
+            "max_tokens": 16384,
+            "cost_per_1k_tokens": 0.015,
+            "recommended_for": ["complex_reasoning", "advanced_analysis"]
+        }
+    },
+    "caching_policy": {
+        "semantic_cache_enabled": true,
+        "cache_expiry_hours": 24,
+        "similarity_threshold": 0.85
+    }
+}

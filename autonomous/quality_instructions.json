@@ -1,0 +1,57 @@
+{
+  "dashboard_quality_standards": {
+    "design": {
+      "principles": [
+        "Follow cutting-edge liquid glass UI principles - translucent surfaces with proper light diffusion",
+        "Implement depth through layering and subtle shadows",
+        "Use subtle animations to convey state changes and interactions",
+        "Ensure consistent spacing, typography, and color usage throughout",
+        "Design must be visually stunning while maintaining perfect usability"
+      ],
+      "inspiration": [
+        "Apple Design System (translucency, depth, animation)",
+        "Vercel dashboard (minimalist data presentation)",
+        "Linear app (task management excellence)",
+        "Retool (component cohesion and customization)",
+        "Stripe dashboard (data visualization and information hierarchy)"
+      ]
+    },
+    "functionality": {
+      "requirements": [
+        "Every component must be fully functional, not just a mockup",
+        "Build with real data integration, not simulated placeholders",
+        "Implement proper state management across the entire application",
+        "Ensure responsive design that works on all screen sizes",
+        "Create intuitive, keyboard-accessible navigation patterns",
+        "Optimize performance to ensure immediate responsiveness"
+      ]
+    },
+    "code_quality": {
+      "standards": [
+        "Write clean, maintainable, well-documented code",
+        "Use TypeScript with proper typing throughout",
+        "Implement component-based architecture with clear separation of concerns",
+        "Follow React best practices (hooks, context, etc.)",
+        "Create reusable, composable components",
+        "Implement proper error handling and loading states"
+      ]
+    },
+    "technical_excellence": {
+      "requirements": [
+        "Use Next.js 14+ with App Router and React Server Components",
+        "Implement proper data fetching strategies (SWR/React Query)",
+        "Create optimistic UI updates for immediate feedback",
+        "Use efficient state management solutions",
+        "Build with accessibility (WCAG 2.1 AA) in mind",
+        "Ensure proper SEO optimization where applicable"
+      ]
+    },
+    "special_focus": [
+      "Real-time updates across components",
+      "Beautiful data visualizations",
+      "Intuitive task management",
+      "Seamless system monitoring",
+      "Effortless command execution"
+    ]
+  }
+}

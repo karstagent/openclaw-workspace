@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-02-10T15:30:23.605297",
+  "status": "active",
+  "scripts": {
+    "persistent_runner.py": {
+      "running": true,
+      "path": "/Users/karst/.openclaw/workspace/persistent_runner.py"
+    },
+    "github_sync.py": {
+      "running": false,
+      "path": "/Users/karst/.openclaw/workspace/github_sync.py"
+    }
+  }
+}

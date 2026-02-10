@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Dashboard</title>
+    <!-- Tailwind CDN for initial development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- Third-party dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- App Shell -->
+    <div id="app">
+        <!-- Initial loading state -->
+        <div class="flex items-center justify-center h-screen">
+            <div class="text-center">
+                <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <h2 class="text-xl font-semibold">Loading Mission Control Dashboard...</h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-2">Initializing components and loading your data</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Scripts - Order matters -->
+    <script src="./utils/storage.js"></script>
+    <script src="./utils/event-bus.js"></script>
+    <script src="./utils/helpers.js"></script>
+    <script src="./core/state.js"></script>
+    <script src="./core/component.js"></script>
+    <script src="./core/router.js"></script>
+    <script src="./components/ui/index.js"></script>
+    <script src="./components/app-shell.js"></script>
+    <script src="./components/navigation.js"></script>
+    <script src="./components/task-board.js"></script>
+    <script src="./components/task-list.js"></script>
+    <script src="./components/task-detail.js"></script>
+    <script src="./components/dashboard.js"></script>
+    <script src="./components/project-board.js"></script>
+    <script src="./components/settings.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

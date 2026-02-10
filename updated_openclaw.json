@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.2-3",
+    "lastTouchedAt": "2026-02-07T08:02:45.435Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-06T02:18:47.045Z",
+    "lastRunVersion": "2026.2.2-3",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openrouter/anthropic/claude-3.7-sonnet"
+      },
+      "models": {
+        "openrouter/auto": {
+          "alias": "OpenRouter"
+        },
+        "openrouter/anthropic/claude-3.7-sonnet": {
+          "alias": "sonnet"
+        },
+        "openrouter/anthropic/claude-3.5-haiku": {
+          "alias": "haiku"
+        },
+        "openrouter/anthropic/claude-3-opus": {
+          "alias": "opus"
+        },
+        "openrouter/deepseek/deepseek-coder": {
+          "alias": "deepseek"
+        }
+      },
+      "workspace": "/Users/karst/.openclaw/workspace",
+      "autostart": true,
+      "heartbeat": {
+        "enabled": true,
+        "intervalMinutes": 30,
+        "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+      },
+      "automation": {
+        "autonomousTasks": true,
+        "backgroundProcesses": {
+          "enabled": true,
+          "maxConcurrent": 3,
+          "restartOnFailure": true,
+          "scripts": [
+            "persistent_runner.py",
+            "github_sync.py",
+            "monitor.py"
+          ]
+        },
+        "scheduledRuns": [
+          {
+            "name": "DailyUpdate",
+            "schedule": "0 9 * * *",
+            "prompt": "Generate a daily progress update on all current projects. Include status, blockers, and next steps.",
+            "model": "openrouter/anthropic/claude-3.7-sonnet",
+            "deliver": true
+          },
+          {
+            "name": "WeeklyReview",
+            "schedule": "0 10 * * 1",
+            "prompt": "Create a comprehensive weekly review of all projects, including metrics, achievements, and strategic recommendations for the coming week.",
+            "model": "openrouter/anthropic/claude-3.7-sonnet",
+            "deliver": true
+          },
+          {
+            "name": "SystemCheck",
+            "schedule": "*/30 * * * *",
+            "prompt": "Check all system processes and logs for errors or warnings. Report any issues found.",
+            "model": "openrouter/deepseek/deepseek-coder",
+            "deliver": false,
+            "saveToFile": "/Users/karst/.openclaw/workspace/logs/system_check.log"
+          }
+        ],
+        "modelSelection": {
+          "enabled": true,
+          "rules": [
+            {
+              "pattern": "administrative|simple|check|status",
+              "model": "openrouter/deepseek/deepseek-coder"
+            },
+            {
+              "pattern": "strategic|complex|analysis|research",
+              "model": "openrouter/anthropic/claude-3.7-sonnet"
+            },
+            {
+              "default": "openrouter/anthropic/claude-3.5-haiku"
+            }
+          ]
+        },
+        "workflowMonitor": {
+          "enabled": true,
+          "checkIntervalMinutes": 5,
+          "scriptPath": "/Users/karst/.openclaw/workspace/ensure_workflow_running.sh"
+        }
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "3h",
+        "keepLastAssistants": 1,
+        "softTrimRatio": 0.7,
+        "hardClearRatio": 0.9,
+        "minPrunableToolChars": 1000,
+        "softTrim": {
+          "maxChars": 30000,
+          "headChars": 5000,
+          "tailChars": 10000
+        },
+        "hardClear": {
+          "enabled": true,
+          "placeholder": "[Context pruned to avoid token limits]"
+        }
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "reserveTokensFloor": 20000,
+        "maxHistoryShare": 0.8
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8,
+        "autoSpawn": {
+          "enabled": true,
+          "thresholdTasks": 3,
+          "defaultModel": "openrouter/anthropic/claude-3.5-haiku"
+        }
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "session": {
+    "reset": {
+      "mode": "idle",
+      "idleMinutes": 1440
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8321959949:AAFe7LZrQLe5XaqWfHWoRjrNlZL7PW5vmPA",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "a34e81340c63b225d5afff17219225bba0bf3e0ed172234e"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

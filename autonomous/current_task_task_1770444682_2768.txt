@@ -1,0 +1,5 @@
+AUTONOMOUS DASHBOARD TASK: Implement Real-Time Updates
+
+Build a comprehensive real-time update system throughout the dashboard. Implement WebSocket connections or SSE for live data streaming. Ensure all components can receive and display updates without full page refreshes. Add subtle visual indicators for changed data. Implement optimistic UI updates for immediate feedback during user actions. Handle connection interruptions gracefully with automatic reconnection and state reconciliation. This system should make the dashboard feel alive with current data while maintaining performance. Read /Users/karst/.openclaw/workspace/autonomous/quality_instructions.json for detailed requirements.
+
+This is an automated task. Please complete this fully with no human intervention. Save all outputs to the appropriate files in the workspace. When finished, respond with 'TASK COMPLETE: <summary of what was accomplished>'.

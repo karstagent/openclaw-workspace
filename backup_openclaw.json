@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.2-3",
+    "lastTouchedAt": "2026-02-06T15:11:07.435Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-06T02:18:47.045Z",
+    "lastRunVersion": "2026.2.2-3",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openrouter/anthropic/claude-3.7-sonnet"
+      },
+      "models": {
+        "openrouter/auto": {
+          "alias": "OpenRouter"
+        },
+        "openrouter/anthropic/claude-3.7-sonnet": {
+          "alias": "sonnet"
+        },
+        "openrouter/anthropic/claude-3.5-haiku": {
+          "alias": "haiku"
+        },
+        "openrouter/anthropic/claude-3-opus": {
+          "alias": "opus"
+        },
+        "openrouter/deepseek/deepseek-coder": {
+          "alias": "deepseek"
+        }
+      },
+      "workspace": "/Users/karst/.openclaw/workspace",
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "3h",
+        "keepLastAssistants": 1,
+        "softTrimRatio": 0.7,
+        "hardClearRatio": 0.9,
+        "minPrunableToolChars": 1000,
+        "softTrim": {
+          "maxChars": 30000,
+          "headChars": 5000,
+          "tailChars": 10000
+        },
+        "hardClear": {
+          "enabled": true,
+          "placeholder": "[Context pruned to avoid token limits]"
+        }
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "reserveTokensFloor": 20000,
+        "maxHistoryShare": 0.8
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "session": {
+    "reset": {
+      "mode": "idle",
+      "idleMinutes": 1440
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8321959949:AAFe7LZrQLe5XaqWfHWoRjrNlZL7PW5vmPA",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "a34e81340c63b225d5afff17219225bba0bf3e0ed172234e"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

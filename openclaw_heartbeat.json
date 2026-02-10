@@ -1,0 +1,13 @@
+{
+    "heartbeat": {
+        "interval": "30m",
+        "model": "ollama/mistral:7b-instruct",
+        "prompt": "Respond 'HEARTBEAT_OK' if no critical system issues exist. If any warnings are present, describe them briefly.",
+        "max_tokens": 50,
+        "action_threshold": {
+            "cpu_usage": 80,
+            "memory_usage": 90,
+            "disk_space": 10
+        }
+    }
+}

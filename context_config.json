@@ -1,0 +1,10 @@
+{
+  "max_context": 200000,
+  "buffer": 10000,
+  "log_level": "INFO",
+  "strategies": {
+    "prefer_recent_messages": true,
+    "preserve_system_messages": true,
+    "summarize_removed_messages": true
+  }
+}

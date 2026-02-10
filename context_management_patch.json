@@ -1,0 +1,34 @@
+{
+  "agents": {
+    "defaults": {
+      "compaction": {
+        "mode": "safeguard",
+        "reserveTokensFloor": 20000,
+        "maxHistoryShare": 0.8
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "3h",
+        "keepLastAssistants": 1,
+        "softTrimRatio": 0.7,
+        "hardClearRatio": 0.9,
+        "minPrunableToolChars": 1000,
+        "softTrim": {
+          "maxChars": 30000,
+          "headChars": 5000,
+          "tailChars": 10000
+        },
+        "hardClear": {
+          "enabled": true,
+          "placeholder": "[Context pruned to avoid token limits]"
+        }
+      }
+    }
+  },
+  "session": {
+    "reset": {
+      "mode": "idle",
+      "idleMinutes": 1440
+    }
+  }
+}

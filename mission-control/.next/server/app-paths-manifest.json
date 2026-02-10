@@ -1,0 +1,6 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/current-task-status/route": "app/api/current-task-status/route.js",
+  "/api/kanban-data/route": "app/api/kanban-data/route.js",
+  "/dashboard/kanban/page": "app/dashboard/kanban/page.js"
+}

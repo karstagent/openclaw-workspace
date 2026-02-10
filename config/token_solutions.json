@@ -1,0 +1,22 @@
+{
+  "semantic_compression": {
+    "enabled": true,
+    "default_compression_ratio": 8,
+    "token_threshold": 100000,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "summarizer_model": "facebook/bart-large-cnn",
+    "preserve_structure": true
+  },
+  "context_extension": {
+    "enabled": true,
+    "target_context_length": 200000,
+    "fallback_to_compression": true,
+    "api_type": "openai"
+  },
+  "monitoring": {
+    "log_level": "info",
+    "track_token_savings": true,
+    "save_statistics": true,
+    "statistics_file": "token_usage_stats.jsonl"
+  }
+}

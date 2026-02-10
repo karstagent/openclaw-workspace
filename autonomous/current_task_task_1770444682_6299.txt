@@ -1,0 +1,5 @@
+AUTONOMOUS DASHBOARD TASK: Create Premium Component Library
+
+Build a comprehensive library of premium UI components to be used throughout the dashboard. Components should follow the liquid glass aesthetic with proper translucency, animations, and interactive states. Include buttons, cards, inputs, dropdowns, modals, tooltips, tabs, accordions, and more. Each component should have proper keyboard accessibility, animation states, and responsive variants. Document the component API and usage patterns. Ensure consistent behavior across all components and browser compatibility. Read /Users/karst/.openclaw/workspace/autonomous/quality_instructions.json for detailed requirements.
+
+This is an automated task. Please complete this fully with no human intervention. Save all outputs to the appropriate files in the workspace. When finished, respond with 'TASK COMPLETE: <summary of what was accomplished>'.

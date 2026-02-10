@@ -1,0 +1,1 @@
+*/5 * * * * /bin/bash /Users/karst/.openclaw/workspace/5min_heartbeat.sh >> /tmp/heartbeat_cron.log 2>&1
